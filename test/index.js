@@ -85,7 +85,6 @@ describe('Basic functionality & logic flow', () => {
   });
 });
 
-
 describe('Tolerance of plaintext', () => {
   it('Should encrypt alphanumeric key values', () => {
     const cryptoObject = new CryptoObject({
@@ -156,4 +155,4 @@ describe('Tolerance of plaintext', () => {
 
     decryptedObject.should.deep.equal(plainObject);
   });
-})
+});
