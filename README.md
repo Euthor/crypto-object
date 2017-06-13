@@ -13,13 +13,17 @@ $ npm i --save https://github.com/Euthor/crypto-object.git
 
 ```javascript
 const CryptoObject = require('crypto-object');
-const cryptoObject = new CryptoObject({password: 'Monica'});
 
-cryptoObject.encrypt({foo: 'bar'})
-// `{foo: '5eadc2'}`
+const cryptoObject = new CryptoObject({
+  password: 'Monica', // The encryption password - Required
+  excludeKeys: ['id'] // Exclude certain keys from encryption - Optional.
+});
 
-cryptoObject.decrypt({foo: '5eadc2'})
-// `{foo: 'bar'}`
+cryptoObject.encrypt({foo: 'bar', id: 5})
+// `{foo: '5eadc2', id: 5}`
+
+cryptoObject.decrypt({foo: '5eadc2', id: 5})
+// `{foo: 'bar', id: 5}`
 ```
 
 ## Run the tests

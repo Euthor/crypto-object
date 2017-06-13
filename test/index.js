@@ -107,6 +107,32 @@ describe('Crypto Object Tests', () => {
     decryptedObject.should.deep.equal(plainObject);
   });
 
+  it('Should allow excluding key values from being encrypted', () => {
+    const cryptoObject = new CryptoObject(Object.assign(testOptions, {
+      excludeKeys: ['fooExcluded']
+    }));
+
+    const plainObject = {
+      foo: 'bar',
+      fooExcluded: 'I-shall-not-be-encrypted'
+    };
+
+    const cipherObject = cryptoObject.encrypt(plainObject);
+    const decryptedObject = cryptoObject.decrypt(cipherObject);
+
+    cipherObject.should.be.an('Object');
+    cipherObject.should.have.property('fooExcluded');
+    cipherObject.fooExcluded.should.equal(plainObject.fooExcluded);
+
+    decryptedObject.should.be.an('Object');
+
+    cipherObject.should.not.deep.equal(plainObject);
+    cipherObject.should.not.deep.equal(decryptedObject);
+
+    decryptedObject.should.deep.equal(plainObject);
+  });
+
+
   it('Should not decrypt if decryption password is different than encryption password', () => {
     let cryptoObject = {};
 
