@@ -1,0 +1,31 @@
+{
+  "name": "crypto-object",
+  "version": "0.0.1",
+  "description": "Encrypt objects in Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.js",
+    "lint": "xo './*.js' --space && xo './test/*.js' --space"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Euthor/crypto-object.git"
+  },
+  "keywords": [
+    "encryption",
+    "objects",
+    "node"
+  ],
+  "author": "@Euthor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Euthor/crypto-object/issues"
+  },
+  "homepage": "https://github.com/Euthor/crypto-object#readme",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "xo": "^0.18.2"
+  },
+  "dependencies": {}
+}
