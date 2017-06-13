@@ -8,6 +8,10 @@ class CryptoObject {
       throw new Error('No password provided');
     }
 
+    if (options.keys.length === 0) {
+      throw new Error('No keys array provided');
+    }
+
     this.options = Object.assign({}, options, {
       algorithm: 'aes-256-ctr'
     });
@@ -25,7 +29,7 @@ class CryptoObject {
     return Object.keys(obj).reduce((newObj, key) => {
       const value = obj[key];
 
-      newObj[key] = this._shouldEncryptValue(value) ? fn(value) : value;
+      newObj[key] = this._shouldEncryptValue(key, value) ? fn(value) : value;
 
       return newObj;
     }, {});
@@ -49,8 +53,11 @@ class CryptoObject {
     return dec;
   }
 
-  _shouldEncryptValue(value = null) {
-    return value && typeof value === 'string';
+  _shouldEncryptValue(key, value = null) {
+    const shouldEncryptThisKey = this.options.keys.includes(key);
+    const isString = typeof value === 'string';
+
+    return value && shouldEncryptThisKey && isString;
   }
 }
 
