@@ -24,13 +24,14 @@ describe('Crypto Object Tests', () => {
     expect(() => new CryptoObject()).to.throw();
   });
 
-  it('Should ignore keys with no value', () => {
+  it('Should not encrypt keys that are not Strings with at least some content', () => {
     const cryptoObject = new CryptoObject(testOptions);
 
     const plainObject = {
       foo: 'bar',
       foo2: null,
-      foo3: 'baz'
+      foo3: 'baz',
+      foo4: 123
     };
 
     const cipherObject = cryptoObject.encrypt(plainObject);

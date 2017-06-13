@@ -23,7 +23,9 @@ class CryptoObject {
 
   _applyFunctionToKeys(obj, fn) {
     return Object.keys(obj).reduce((newObj, key) => {
-      newObj[key] = obj[key] ? fn(obj[key]) : obj[key];
+      const value = obj[key];
+
+      newObj[key] = this._canEncryptValue(value) ? fn(value) : value;
 
       return newObj;
     }, {});
@@ -45,6 +47,10 @@ class CryptoObject {
     dec += decipher.final('utf8');
 
     return dec;
+  }
+
+  _canEncryptValue(value = null) {
+    return value && typeof value === 'string';
   }
 }
 
