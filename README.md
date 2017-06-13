@@ -13,7 +13,7 @@ $ npm i --save https://github.com/Euthor/crypto-object.git
 
 ```javascript
 const CryptoObject = require('crypto-object');
-const cryptoObject = new CryptoObject({password: 'veronica'});
+const cryptoObject = new CryptoObject({password: 'Monica'});
 
 cryptoObject.encrypt({foo: 'bar'})
 // `{foo: '5eadc2'}`
