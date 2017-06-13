@@ -25,7 +25,7 @@ class CryptoObject {
     return Object.keys(obj).reduce((newObj, key) => {
       const value = obj[key];
 
-      newObj[key] = this._shouldEncryptValue(key, value) ? fn(value) : value;
+      newObj[key] = this._shouldEncryptValue(value) ? fn(value) : value;
 
       return newObj;
     }, {});
@@ -49,11 +49,8 @@ class CryptoObject {
     return dec;
   }
 
-  _shouldEncryptValue(key = null, value = null) {
-    const isExcludedKey = this.options.excludeKeys ? this.options.excludeKeys.includes(key) : false;
-    const isString = typeof value === 'string';
-
-    return key && value && !isExcludedKey && isString;
+  _shouldEncryptValue(value = null) {
+    return value && typeof value === 'string';
   }
 }
 
