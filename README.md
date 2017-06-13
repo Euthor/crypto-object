@@ -14,7 +14,6 @@ $ npm i --save https://github.com/Euthor/crypto-object.git
 const CryptoObject = require('crypto-object');
 const cryptoObject = new CryptoObject({password: 'veronica'});
 
-// Note: The ciphertext has the same length as the plaintext.
 cryptoObject.encrypt({foo: 'bar'})
 // `{foo: '5eadc2'}`
 
