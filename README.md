@@ -1,5 +1,6 @@
 # crypto-object
-Encrypt Objects in Node.js, using built-in [Crypto][1]
+> Encrypt Objects in Node.js, using built-in [Crypto][1].
+> Uses AES 256(CTR mode)
 
 [![Build Status](https://travis-ci.org/Euthor/crypto-object.svg?branch=master)](https://travis-ci.org/Euthor/crypto-object)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
