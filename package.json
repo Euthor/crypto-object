@@ -1,6 +1,6 @@
 {
   "name": "crypto-object",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Encrypt objects in Node.js",
   "main": "index.js",
   "scripts": {
